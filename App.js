@@ -21,8 +21,33 @@ type Props = {};
 export default class App extends Component<Props> {
 
   componentDidMount() {
+    Platform.OS == 'ios' ? this.iosChecker() : this.androidChecker();
+  }
+
+  androidChecker() {
     AppInstalledChecker
     .isAppInstalledAndroid('com.microsoft.msapps')
+    .then((isInstalled) => {
+        if (isInstalled) {
+          AppLink.maybeOpenURL('https://web.powerapps.com/apps/', { appName: 'PowerApps', appStoreId: 'id1047318566', appStoreLocale: 'us', playStoreId: 'com.microsoft.msapps' }).then(() => {
+          })
+          .catch((err) => {
+            // handle error
+          });
+        } else {
+          AppLink.openInStore({ appName: 'PowerApps', appStoreId: 'id1047318566', appStoreLocale: 'us', playStoreId: 'com.microsoft.msapps' }).then(() => {
+            // do stuff
+          })
+          .catch((err) => {
+            // handle error
+          });
+        }
+    });
+  }
+
+  iosChecker() {
+    AppInstalledChecker
+    .isAppInstalledIOS('https://web.powerapps.com/apps/')
     .then((isInstalled) => {
         if (isInstalled) {
           AppLink.maybeOpenURL('https://web.powerapps.com/apps/', { appName: 'PowerApps', appStoreId: 'id1047318566', appStoreLocale: 'us', playStoreId: 'com.microsoft.msapps' }).then(() => {

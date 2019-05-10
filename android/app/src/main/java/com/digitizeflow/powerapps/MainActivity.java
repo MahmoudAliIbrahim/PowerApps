@@ -1,4 +1,4 @@
-package com.powerapps;
+package com.digitizeflow.powerapps;
 
 import com.facebook.react.ReactActivity;
 

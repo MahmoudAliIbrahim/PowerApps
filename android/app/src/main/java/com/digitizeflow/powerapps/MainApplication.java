@@ -1,13 +1,13 @@
-package com.powerapps;
+package com.digitizeflow.powerapps;
 
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.rpt.reactnativecheckpackageinstallation.CheckPackageInstallationPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.rpt.reactnativecheckpackageinstallation.CheckPackageInstallationPackage;
 
 import java.util.Arrays;
 import java.util.List;
