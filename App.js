@@ -7,62 +7,17 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import AppLink from 'react-native-app-link';
-import { AppInstalledChecker, CheckPackageInstallation } from 'react-native-check-app-install';
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
 type Props = {};
 export default class App extends Component<Props> {
 
   componentDidMount() {
-    Platform.OS == 'ios' ? this.iosChecker() : this.androidChecker();
-  }
-
-  androidChecker() {
-    AppInstalledChecker
-    .isAppInstalledAndroid('com.microsoft.msapps')
-    .then((isInstalled) => {
-        if (isInstalled) {
-          AppLink.maybeOpenURL('https://web.powerapps.com/apps/', { appName: 'PowerApps', appStoreId: 'id1047318566', appStoreLocale: 'us', playStoreId: 'com.microsoft.msapps' }).then(() => {
-          })
-          .catch((err) => {
-            // handle error
-          });
-        } else {
-          AppLink.openInStore({ appName: 'PowerApps', appStoreId: 'id1047318566', appStoreLocale: 'us', playStoreId: 'com.microsoft.msapps' }).then(() => {
-            // do stuff
-          })
-          .catch((err) => {
-            // handle error
-          });
-        }
-    });
-  }
-
-  iosChecker() {
-    AppInstalledChecker
-    .isAppInstalledIOS('https://web.powerapps.com/apps/')
-    .then((isInstalled) => {
-        if (isInstalled) {
-          AppLink.maybeOpenURL('https://web.powerapps.com/apps/', { appName: 'PowerApps', appStoreId: 'id1047318566', appStoreLocale: 'us', playStoreId: 'com.microsoft.msapps' }).then(() => {
-          })
-          .catch((err) => {
-            // handle error
-          });
-        } else {
-          AppLink.openInStore({ appName: 'PowerApps', appStoreId: 'id1047318566', appStoreLocale: 'us', playStoreId: 'com.microsoft.msapps' }).then(() => {
-            // do stuff
-          })
-          .catch((err) => {
-            // handle error
-          });
-        }
+    AppLink.maybeOpenURL('ms-apps://apps', { appName: 'PowerApps', appStoreId: 'id1047318566', appStoreLocale: 'us', playStoreId: 'com.microsoft.msapps' }).then(() => {
+    })
+    .catch((err) => {
+      // handle error
     });
   }
 

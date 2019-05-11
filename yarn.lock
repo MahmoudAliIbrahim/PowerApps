@@ -4891,9 +4891,10 @@ react-native-app-link@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-native-app-link/-/react-native-app-link-1.0.0.tgz#9de44a4676fd7d2879f26fc0691c48c0a85b4e2a"
   integrity sha512-x2eNaQqC5yaI+/A8lITt/0Nr/Kf0DV+xmGwIHtqRbKtDnSJfAEJQkV1X9XVygEq6FLRKQ9+IcSKNrw8TwiHAzQ==
 
-"react-native-check-app-install@https://github.com/AhmedAliIbrahim/react-native-check-app-install":
+react-native-check-app-install@^0.0.5:
   version "0.0.5"
-  resolved "https://github.com/AhmedAliIbrahim/react-native-check-app-install#0ab1ec6049c33a6c436ce5ad46379095850d0b12"
+  resolved "https://registry.yarnpkg.com/react-native-check-app-install/-/react-native-check-app-install-0.0.5.tgz#1cd5bff09a7d294af7acc88da627984654cb1b9c"
+  integrity sha512-nKUf0HcLbRGlOgSun4w2ftKZsabcwwff4GK//WwdoxG5wstqhWK1231+SKapjJY4GjoM2pI2Xv6ClTQV6e5cog==
 
 react-native@0.59.5:
   version "0.59.5"
