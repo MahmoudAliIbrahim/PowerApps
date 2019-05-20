@@ -1,4 +1,4 @@
-package com.digitizeflow.powerapps;
+package com.samcrete.infrastructure;
 
 import android.app.Application;
 
