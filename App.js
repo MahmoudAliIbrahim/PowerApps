@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, AppState} from 'react-native';
 import AppLink from 'react-native-app-link';
+import SplashScreen from 'react-native-splash-screen'
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -13,6 +14,7 @@ export default class App extends Component<Props> {
   }
 
   componentDidMount() {
+    SplashScreen.hide()
     this.checkIfInstalled();
     AppState.addEventListener('change', this._handleAppStateChange);
   }
@@ -39,7 +41,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.welcome}>Welcome to Infrastructure!</Text>
       </View>
     );
   }
