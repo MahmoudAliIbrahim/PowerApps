@@ -1,41 +1,46 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, AppState} from 'react-native';
-import AppLink from 'react-native-app-link';
-import SplashScreen from 'react-native-splash-screen'
+import React, { Component } from "react";
+import { StyleSheet, Text, View, AppState } from "react-native";
+import AppLink from "react-native-app-link";
 
 type Props = {};
 export default class App extends Component<Props> {
-
   constructor(props) {
     super(props);
     this.state = {
-      appState: AppState.currentState,
-    }
+      appState: AppState.currentState
+    };
   }
 
   componentDidMount() {
-    SplashScreen.hide()
     this.checkIfInstalled();
-    AppState.addEventListener('change', this._handleAppStateChange);
+    AppState.addEventListener("change", this._handleAppStateChange);
   }
 
   componentWillUnmount() {
-    AppState.removeEventListener('change', this._handleAppStateChange);
+    AppState.removeEventListener("change", this._handleAppStateChange);
   }
 
-  _handleAppStateChange = (nextAppState) => {
-    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+  _handleAppStateChange = nextAppState => {
+    if (
+      this.state.appState.match(/inactive|background/) &&
+      nextAppState === "active"
+    ) {
       this.checkIfInstalled();
     }
-    this.setState({appState: nextAppState});
+    this.setState({ appState: nextAppState });
   };
 
   checkIfInstalled() {
-    AppLink.maybeOpenURL('ms-apps://apps', { appName: 'PowerApps', appStoreId: 'id1047318566', appStoreLocale: 'us', playStoreId: 'com.microsoft.msapps' }).then(() => {
+    AppLink.maybeOpenURL("ms-apps://apps", {
+      appName: "PowerApps",
+      appStoreId: "id1047318566",
+      appStoreLocale: "us",
+      playStoreId: "com.microsoft.msapps"
     })
-    .catch((err) => {
-      // handle error
-    });
+      .then(() => {})
+      .catch(err => {
+        // handle error
+      });
   }
 
   render() {
@@ -50,18 +55,18 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF"
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    textAlign: "center",
+    margin: 10
   },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    textAlign: "center",
+    color: "#333333",
+    marginBottom: 5
+  }
 });
