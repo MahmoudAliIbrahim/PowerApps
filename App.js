@@ -31,11 +31,11 @@ export default class App extends Component<Props> {
   };
 
   checkIfInstalled() {
-    AppLink.maybeOpenURL("ms-apps://apps", {
-      appName: "PowerApps",
-      appStoreId: "id1047318566",
+    AppLink.maybeOpenURL("mspbi://app", {
+      appName: "Power BI",
+      appStoreId: "id929738808",
       appStoreLocale: "us",
-      playStoreId: "com.microsoft.msapps"
+      playStoreId: "com.microsoft.powerbim"
     })
       .then(() => {})
       .catch(err => {
