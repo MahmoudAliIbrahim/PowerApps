@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, AppState } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  AppState,
+  Linking,
+  Platform
+} from "react-native";
 import AppLink from "react-native-app-link";
 
 type Props = {};
@@ -31,7 +38,21 @@ export default class App extends Component<Props> {
   };
 
   checkIfInstalled() {
-    AppLink.maybeOpenURL("mspbi://app", {
+    const urlScheme = "mspbi://app";
+    const url = "https://app.powerbi.com/home";
+    Linking.canOpenURL(urlScheme)
+      .then(supported => {
+        if (!supported) {
+          return this.openApplication(urlScheme);
+        } else {
+          return this.openApplication(url);
+        }
+      })
+      .catch(err => console.error("An error occurred", err));
+  }
+
+  openApplication(url) {
+    AppLink.maybeOpenURL(url, {
       appName: "Power BI",
       appStoreId: "id929738808",
       appStoreLocale: "us",
@@ -46,7 +67,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to Infrastructure!</Text>
+        <Text style={styles.welcome}>Welcome to Samcrete Infrastructure!</Text>
       </View>
     );
   }
