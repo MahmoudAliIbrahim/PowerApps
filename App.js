@@ -52,11 +52,11 @@ export default class App extends Component<Props> {
   }
 
   openApplication(url) {
-    AppLink.maybeOpenURL(url, {
-      appName: "Power BI",
-      appStoreId: "id929738808",
+    AppLink.maybeOpenURL("ms-apps://apps", {
+      appName: "PowerApps",
+      appStoreId: "id1047318566",
       appStoreLocale: "us",
-      playStoreId: "com.microsoft.powerbim"
+      playStoreId: "com.microsoft.msapps"
     })
       .then(() => {})
       .catch(err => {
