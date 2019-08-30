@@ -1,4 +1,4 @@
-package com.samcrete.infrastructure;
+package com.selectfod;
 
 import com.facebook.react.ReactActivity;
 
